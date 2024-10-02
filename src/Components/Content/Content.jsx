@@ -1,6 +1,6 @@
 import React from 'react';
 import './Content.css'
-import product from '../../Assets/images/productList';
+import product from '../../productList.json';
 import ProductItem from '../ProductItem/ProductItem';
 
 const Content = () => {
