@@ -1,0 +1,205 @@
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #ddd;
+    top: 0;
+    padding: 10px 50px;
+    z-index: 1000;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.694);
+}
+
+.header .logo {
+    font-size: 35px;
+    font-weight: 600;
+    color: #5356FF;
+    cursor: pointer;
+}
+
+.header .logo span {
+    color: #ff003c;
+}
+
+.header ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: auto;
+}
+
+ul li {
+    padding: 10px 15px;
+}
+
+a {
+    color: rgba(0, 0, 0, 0.694);
+    font-size: 24px;
+    position: relative;
+}
+
+a.active {
+    border-bottom: 3px solid #ff003c;
+    color: #000;
+    transition: 0.3s color;
+    padding-bottom: 2px;
+}
+
+.header .cart-list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 35px;
+}
+
+.header .cart-list .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+.header .login button {
+    all: unset;
+    padding: 8px 25px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    background-color: #3033fc;
+}
+
+
+.header .login button:hover {
+    background-color: #5356FF;
+    transition: 0.3s all;
+}
+
+.fav:hover {
+    color: #ff003c;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.cart:hover {
+    transition: 0.3s all;
+    color: #3033fc;
+    cursor: pointer;
+}
+
+.header .cart-list .item {
+    position: relative;
+}
+
+.header .cart-list .item .count {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 14px;
+    border-radius: 50%;
+    color: #fff;
+    z-index: 10;
+}
+
+.header .cart-list .item .fav-count {
+    background-color: #ff003c;
+}
+
+.header .cart-list .item .cart-count {
+    background-color: #3033fc;
+}
+
+.hamburger {
+    display: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.hamburger .menu-bar {
+    font-size: 36px;
+}
+
+@media (max-width: 992px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .header ul.open {
+        display: flex;
+    }
+
+    .header .cart-list {
+        display: none;
+    }
+
+    .header .navbar.open {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .header ul {
+        display: flex;
+    }
+
+    .login {
+        display: none;
+    }
+
+    .header .navbar.open {
+        display: flex;
+    }
+}
+
+@media (max-width: 608px) {
+
+    .header.open {
+        flex-direction: column;
+        height: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.694);
+    }
+
+    .header.open .logo {
+        position: fixed;
+        left: 20px;
+    }
+
+    .header.open ul {
+        display: block;
+        margin-top: 50px;
+        transition: 3s all;
+    }
+
+    .header ul {
+        display: none;
+    }
+
+    .hamburger {
+        display: block !important;
+        position: fixed;
+        right: 10px;
+    }
+
+    .header .navbar {
+        display: none;
+        flex-direction: column;
+    }
+
+    .header .navbar.open {
+        display: flex;
+    }
+
+    .header .navbar.close {
+        display: none;
+    }
+
+}
