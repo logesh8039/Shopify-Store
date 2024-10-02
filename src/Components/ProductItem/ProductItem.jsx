@@ -3,11 +3,11 @@ import './ProductItem.css'
 import { FaCartShopping } from 'react-icons/fa6';
 import { MdRemoveShoppingCart } from 'react-icons/md';
 import { IoMdHeart, IoMdHeartEmpty } from 'react-icons/io';
-import { cartContext } from '../../StoreContext';
+import { CartContext } from '../../StoreContext';
 
 const ProductItem = ({ id, title, rating, price, img, discount }) => {
 
-    const { addToCart, removeFromCart, cart , fav,addToFav,removeFromFav } = useContext(cartContext)
+    const { addToCart, removeFromCart, cart , fav,addToFav,removeFromFav } = useContext(CartContext)
     const [isInCart, setIsInCart] = useState(false);
     const [isInFav, setIsInFav] = useState(false);
 

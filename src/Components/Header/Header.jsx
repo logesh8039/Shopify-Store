@@ -3,12 +3,12 @@ import './Header.css';
 import { BsCart2 } from 'react-icons/bs';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import { cartContext } from '../../StoreContext';
+import { CartContext } from '../../StoreContext';
 import { FiMenu } from 'react-icons/fi';
 import { IoClose } from 'react-icons/io5';
 
 const Header = () => {
-  const { cart, fav } = useContext(cartContext);
+  const { cart, fav } = useContext(CartContext);
   const [navItem, setNavItem] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

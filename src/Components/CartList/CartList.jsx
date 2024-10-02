@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import './CartList.css'
-import { cartContext } from '../../StoreContext';
+import { CartContext } from '../../StoreContext';
 
 
 const CartList = () => {
 
-  const { cart, removeFromCart, getTotalCartAmount } = useContext(cartContext);
+  const { cart, removeFromCart, getTotalCartAmount } = useContext(CartContext);
 
   const handleRemove = (id) => {
     removeFromCart(id)

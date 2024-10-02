@@ -1,10 +1,10 @@
 import React from 'react';
 import './FavList.css';
 import { useContext } from 'react';
-import { cartContext } from '../../StoreContext';
+import { CartContext } from '../../StoreContext';
 
 const FavList = () => {
-  const { fav, removeFromFav } = useContext(cartContext);
+  const { fav, removeFromFav } = useContext(CartContext);
 
   const handleRemove = (id) => {
     removeFromFav(id)

@@ -1,33 +1,13 @@
 import React, { createContext, useState, useEffect, useMemo } from 'react';
+import products from '../src/productList.json';
 
-export const cartContext = createContext(null);
+export const CartContext = createContext(null);
 
 const StoreContext = ({ children }) => {
-    const [cart, setCart] = useState(() => {
-        const savedCart = localStorage.getItem('cart');
-        return savedCart ? JSON.parse(savedCart) : [];
-    });
+    const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem('cart')) || []);
+    const [fav, setFav] = useState(() => JSON.parse(localStorage.getItem('fav')) || []);
 
-    const [fav, setFav] = useState(() => {
-        const savedFav = localStorage.getItem('fav');
-        return savedFav ? JSON.parse(savedFav) : [];
-    });
-
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch('https://fakestoreapi.com/products');
-                const data = await response.json();
-                setProducts(data);
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-        };
-
-        fetchProducts();
-    }, []);
+    const [productsState, setProducts] = useState(products);
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -61,7 +41,7 @@ const StoreContext = ({ children }) => {
 
     const getTotalCartAmount = () => {
         return cart.reduce((total, product) => {
-            const itemInfo = products.find((item) => item.id === product.id);
+            const itemInfo = productsState.find((item) => item.id === product.id);
             return itemInfo ? total + itemInfo.price : total;
         }, 0);
     };
@@ -74,13 +54,13 @@ const StoreContext = ({ children }) => {
         addToFav,
         removeFromFav,
         getTotalCartAmount,
-        products,
-    }), [cart, fav, products]);
+        products: productsState, // Use the local products
+    }), [cart, fav, productsState]);
 
     return (
-        <cartContext.Provider value={value}>
+        <CartContext.Provider value={value}>
             {children}
-        </cartContext.Provider>
+        </CartContext.Provider>
     );
 };
 
