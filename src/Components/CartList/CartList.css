@@ -126,7 +126,6 @@ tbody {
 }
 
 .cart-promo .promo-code {
-    background-color: red;
     border-collapse: collapse;
     width: 100%;
     height: 50px;
@@ -226,7 +225,6 @@ tbody {
     td {
         font-size: 18px;
         padding: 5px;
-        background-color: red;
     }
 
     .check-cart-price,
@@ -241,8 +239,6 @@ tbody {
 
     .check-out-btn {
         width: 100%;
-        background-color: red !important;
-
     }
 }
 
