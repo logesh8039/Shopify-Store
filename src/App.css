@@ -1,4 +1,4 @@
-.app{
+.app {
     height: 100%;
     position: relative;
     top: 70px;
@@ -7,4 +7,24 @@
     align-items: center;
     padding: 20px 50px;
     gap: 20px;
+}
+
+
+@media (min-width: 268px) {
+    .app {
+        padding: 10px 10px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .app {
+        padding: 20px  !important;
+
+    }
+}
+
+@media (min-width: 1024px) {
+    .app {
+        padding: 20px 30px !important;
+    }
 }

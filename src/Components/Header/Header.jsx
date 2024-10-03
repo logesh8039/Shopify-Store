@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef } from 'react';
 import './Header.css';
 import { BsCart2 } from 'react-icons/bs';
 import { IoMdHeartEmpty } from 'react-icons/io';
@@ -11,22 +11,32 @@ const Header = () => {
   const { cart, fav } = useContext(CartContext);
   const [navItem, setNavItem] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(prev => !prev);
   };
-
-  useEffect(() => {
-      setNavItem(navItem);
-  }, []);
 
   const handleLinkClick = (item) => {
     setNavItem(item);
     setIsMenuOpen(false);
   };
 
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={`header ${isMenuOpen ? 'open' : 'close'}`}>
+    <div className={`header ${isMenuOpen ? 'open' : 'close'}`} ref={menuRef}>
       <a className="logo" href='/'>Shopi<span>Fy</span></a>
       <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation" aria-expanded={isMenuOpen}>
         {isMenuOpen ? <IoClose className='menu-bar' /> : <FiMenu className='menu-bar' />}
@@ -44,8 +54,7 @@ const Header = () => {
           <Link 
             to='/product' 
             onClick={() => handleLinkClick('product')} 
-            className={navItem === 'product' ? 'active' : ''}
-          >
+            className={navItem === 'product' ? 'active' : ''}>
             Products
           </Link>
         </li>
@@ -53,8 +62,7 @@ const Header = () => {
           <Link 
             to='/cart' 
             onClick={() => handleLinkClick('cart')} 
-            className={navItem === 'cart' ? 'active' : ''}
-          >
+            className={navItem === 'cart' ? 'active' : ''}>
             Carts
           </Link>
         </li>
@@ -62,8 +70,7 @@ const Header = () => {
           <Link 
             to='/fav' 
             onClick={() => handleLinkClick('fav')} 
-            className={navItem === 'fav' ? 'active' : ''}
-          >
+            className={navItem === 'fav' ? 'active' : ''}>
             Favorites
           </Link>
         </li>

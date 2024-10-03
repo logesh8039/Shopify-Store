@@ -1,4 +1,4 @@
-.cart-list-item{
+.cart-list-item {
     background-color: #fff;
     width: 100%;
     border-radius: 10px;
@@ -9,21 +9,22 @@
     padding: 0px 50px !important;
 }
 
-table{
+table {
     width: 100%;
     border-collapse: collapse;
-}   
+}
 
-thead{
+thead {
     background-color: #fff;
 }
 
-table th{
+table th {
     padding: 10px !important;
     border-top: none !important;
 }
 
-table th,td{
+table th,
+td {
     border-bottom: 1px solid #a3a3a3;
     padding: 10px;
     text-align: center;
@@ -32,12 +33,12 @@ table th,td{
 
 
 
-img{
+img {
     width: 80px;
     height: 100px;
 }
 
-.remove-btn{
+.remove-btn {
     all: unset;
     background-color: #F44336;
     color: #fff;
@@ -46,31 +47,31 @@ img{
     cursor: pointer;
 }
 
-.remove-btn:hover{
+.remove-btn:hover {
     background-color: #c0392b;
     transition: 0.3s all;
 }
 
-tbody{
+tbody {
     width: 100%;
 }
 
-.cart-empty{
+.cart-empty {
     color: #3033FC;
 }
 
-.fav-empty{
+.fav-empty {
     color: #FF003C;
 }
 
-.cart-total{
+.cart-total {
     display: flex;
     align-items: self-start;
     justify-content: space-between;
     margin-top: 20px;
 }
 
-.check-cart-price{
+.check-cart-price {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -78,7 +79,7 @@ tbody{
     align-items: start;
 }
 
-.check-price{
+.check-price {
     width: 100%;
     display: flex;
     align-items: center;
@@ -90,25 +91,25 @@ tbody{
     font-weight: 100;
 }
 
-.check-cart-price h2{
+.check-cart-price h2 {
     font-size: 30px;
     font-weight: bold;
 }
 
-.cart-promo{
+.cart-promo {
     width: 40%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.total-fee{
+.total-fee {
     font-weight: 600;
     font-size: 20px;
     border: none;
 }
 
-.check-out-btn{
+.check-out-btn {
     background-color: #FF6347;
     border: none;
     outline: none;
@@ -119,12 +120,12 @@ tbody{
     cursor: pointer;
 }
 
-.cart-promo p{
+.cart-promo p {
     font-size: 20px;
     color: #000;
 }
 
-.cart-promo .promo-code{
+.cart-promo .promo-code {
     background-color: red;
     border-collapse: collapse;
     width: 100%;
@@ -134,7 +135,7 @@ tbody{
     position: relative;
 }
 
-.promo-code input{
+.promo-code input {
     height: 100%;
     width: 100%;
     border: none;
@@ -145,7 +146,7 @@ tbody{
     position: absolute;
 }
 
-.promo-code .promo-btn{
+.promo-code .promo-btn {
     position: absolute;
     width: 150px;
     right: 0;
@@ -155,18 +156,46 @@ tbody{
     cursor: pointer;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 280px) and (max-width: 581px){
     .cart-list-item {
-        padding: 10px;
+        padding: 0px !important;
+        gap: 0px;
+    }
+    
+    .table-container{
+        overflow-x: auto !important;
     }
 
-    table th, td {
+    h2{
+        font-size: 20px;
+    }
+
+    table th,
+    td {
+        font-size: 14px;
+
+    }
+
+    .check-cart-price,
+    .cart-promo {
+        width: 100%;
+        align-items: center;
+    }
+
+    .check-cart-price h2{
+        font-size: 24px;
+    }
+
+    .check-cart-price p{
         font-size: 16px;
     }
 
-    .check-cart-price, .cart-promo {
-        width: 100%;
-        align-items: center;
+    .cart-promo{
+        margin-top: 10px;
+    }
+
+    .cart-promo p{
+        font-size: 20px;
     }
 
     .cart-total {
@@ -176,47 +205,58 @@ tbody{
 
     .check-out-btn {
         width: 100%;
-        padding: 15px;
     }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 581px) and (max-width: 768px) {
     .cart-list-item {
         padding: 0px !important;
+        gap: 5px;
     }
 
-    .table-container{
+    .table-container {
         overflow-x: auto;
     }
 
-    table th, td {
-        font-size: 18px; 
+    h2{
+        font-size: 28px;
     }
 
-    .check-cart-price, .cart-promo {
-        width: 100%; 
+    table th,
+    td {
+        font-size: 18px;
+        padding: 5px;
+        background-color: red;
+    }
+
+    .check-cart-price,
+    .cart-promo {
+        width: 100%;
     }
 
     .cart-total {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 20px;
     }
 
     .check-out-btn {
         width: 100%;
+        background-color: red !important;
+
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .cart-list-item {
         padding: 0px !important;
     }
 
-    .check-cart-price, .cart-promo {
-        width: 45%; 
+    .check-cart-price,
+    .cart-promo {
+        width: 50%;
     }
 
-    .table-container{
+    .table-container {
         overflow-x: auto;
     }
 
@@ -228,6 +268,10 @@ tbody{
     .check-out-btn {
         width: auto;
     }
+    table th,
+    td {
+        font-size: 20px ;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -235,15 +279,25 @@ tbody{
         padding: 50px;
     }
 
-    table th, td {
-        font-size: 20px; 
+    h2{
+        font-size: 28px;
     }
 
-    .check-cart-price, .cart-promo {
+    table th,
+    td {
+        font-size: 20px !important;
+    }
+
+    .check-cart-price,
+    .cart-promo {
         width: 40%;
     }
 
     .cart-total {
-        flex-direction: row; 
+        flex-direction: row;
+    }
+
+    .cart-total h2{
+        font-size: 20px;
     }
 }
